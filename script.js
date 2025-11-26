@@ -54,7 +54,7 @@ const LanguageManager = (() => {
                 const finalLang = pendingLanguage || lang;
                 
                 try {
-                    const response = await fetch(`./lang/${finalLang}.json`);
+                    const response = await fetch(`./lang/${finalLang}.json?v=${Date.now()}`);
                     if (!response.ok) throw new Error(`Failed to load ${finalLang}.json`);
                     translations = await response.json();
                     translationCache[finalLang] = translations;
