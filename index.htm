@@ -21,7 +21,9 @@
     
     <title>MEGA+ Towing - Professional Evacuation & Recovery Services 24/7</title>
     <link rel="icon" type="image/png" href="Photos/Logo.png">
-    <link rel="stylesheet" href="styles.css">
+    <!-- Defer main stylesheet to prevent render blocking (320ms savings) -->
+    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles.css"></noscript>
     <!-- Preload hero background image for LCP optimization -->
     <link rel="preload" href="./Photos/hero-bg.jpg" as="image" fetchpriority="high">
     <!-- Defer Font Awesome to prevent render blocking -->
