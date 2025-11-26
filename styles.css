@@ -267,9 +267,9 @@ body {
 
 .lang-btn {
     padding: 0.4rem 0.6rem;
-    background-color: transparent;
+    /* background-color: transparent; */
     border: 2px solid var(--primary-color);
-    color: var(--primary-color);
+    /* color: var(--primary-color); */
     cursor: pointer;
     border-radius: 3px;
     font-weight: 600;
