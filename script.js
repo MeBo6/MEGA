@@ -184,6 +184,37 @@ if (mobileMenuToggle) {
     });
 }
 
+// Mobile dropdown menu handling - show/hide on tap for touch devices
+const dropdowns = document.querySelectorAll('.dropdown');
+dropdowns.forEach(dropdown => {
+    const dropdownLink = dropdown.querySelector('a');
+    
+    dropdownLink.addEventListener('click', function(e) {
+        // Only prevent default on touch devices for nested dropdowns
+        if (window.matchMedia('(max-width: 768px)').matches) {
+            const menu = dropdown.querySelector('.dropdown-menu');
+            if (menu && !menu.classList.contains('active')) {
+                e.preventDefault();
+                menu.classList.add('active');
+            }
+        }
+    });
+});
+
+// Close dropdown when a submenu item is clicked
+const dropdownItems = document.querySelectorAll('.dropdown-menu a');
+dropdownItems.forEach(item => {
+    item.addEventListener('click', function() {
+        // Close the dropdown menu
+        const menu = this.closest('.dropdown-menu');
+        if (menu) {
+            menu.classList.remove('active');
+        }
+        // Close mobile menu
+        navLinks.classList.remove('active');
+    });
+});
+
 // Close mobile menu when a link is clicked
 const navItems = document.querySelectorAll('.nav-links a');
 navItems.forEach(item => {

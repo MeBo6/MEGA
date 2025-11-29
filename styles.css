@@ -197,6 +197,15 @@ body {
     transform: rotate(180deg);
 }
 
+/* Mobile: Show dropdown when .active class is applied */
+.dropdown-menu.active {
+    display: block;
+}
+
+.dropdown.active .dropdown-icon {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu li {
     margin: 0;
 }
