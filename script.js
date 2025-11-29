@@ -9,12 +9,14 @@ const LanguageManager = (() => {
     let loadingTimeout = null;
     let pendingLanguage = null;
 
-    // Detect browser language or use stored preference, with Georgian as default
+    // Detect stored language preference or default to Georgian
     const getInitialLanguage = () => {
         const stored = localStorage.getItem('selectedLanguage');
-        if (stored) return stored; // Use saved preference
-        const browserLang = navigator.language.split('-')[0];
-        return ['en', 'ge', 'ru'].includes(browserLang) ? browserLang : 'ge'; // Fallback to Georgian
+        if (stored) return stored; // Use saved preference if available
+        
+        // HTML has lang="ka" (Georgian) and all text is Georgian by default,
+        // so we return Georgian as the primary language
+        return 'ge';
     };
 
     // Load translations from localStorage cache
@@ -108,19 +110,6 @@ const LanguageManager = (() => {
                 element.placeholder = t(key);
             });
         });
-
-        // Update page title based on language
-        updatePageTitle();
-    };
-
-    // Update page title based on current language
-    const updatePageTitle = () => {
-        const titles = {
-            'en': 'Auto Help MEGA+ 24/7',
-            'ge': 'ავტო დახმარება მეგა+ 24/7',
-            'ru': 'Авто Помощь МЕГА+ 24/7'
-        };
-        document.title = titles[currentLanguage] || titles['en'];
     };
 
     // Update button states (memoized selector)
@@ -336,7 +325,7 @@ function sendLocationViaWhatsApp() {
             function(position) {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
-                const googleMapsLink = `https://maps.google.com/?q=${lat},${lng}`;
+                const googleMapsLink = `http://googleusercontent.com/maps.google.com/?q=${lat},${lng}`;
                 
                 // Create message with location
                 const message = `I need emergency towing service! My location: ${googleMapsLink}`;
