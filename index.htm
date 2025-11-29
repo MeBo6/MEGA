@@ -42,6 +42,10 @@
         gtag('js', new Date());
         gtag('config', 'G-V0RS4B947Q');
     </script>
+    <!-- Force Georgian as default language -->
+    <script>
+        localStorage.setItem('selectedLanguage', 'ge');
+    </script>
 </head>
 <body>
     <!-- HEADER & NAVIGATION -->
@@ -73,8 +77,8 @@
                 </a>
             </div>
             <div class="language-switcher" id="languageSwitcher">
-                <button class="lang-btn" data-lang="en">ინგ</button>
                 <button class="lang-btn" data-lang="ge">ქარ</button>
+                <button class="lang-btn" data-lang="en">ინგ</button>
                 <button class="lang-btn" data-lang="ru">რუს</button>
             </div>
             <div class="mobile-menu-toggle">
