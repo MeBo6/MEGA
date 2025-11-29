@@ -950,6 +950,19 @@ body {
     display: block;
 }
 
+.footer-logo-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.footer-logo-link:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
