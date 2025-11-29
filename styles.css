@@ -41,7 +41,7 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Noto Sans Georgian', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--dark-text);
     line-height: 1.6;
     background-color: #fff;
