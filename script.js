@@ -16,7 +16,7 @@ const LanguageManager = (() => {
         
         // HTML has lang="ka" (Georgian) and all text is Georgian by default,
         // so we return Georgian as the primary language
-        return 'ge';
+        return 'ka';
     };
 
     // Load translations from localStorage cache
@@ -264,7 +264,7 @@ if (scrollToTopBtn) {
 
 // Emergency call button with phone number
 function callEmergency() {
-    window.location.href = 'tel:+15551234567';
+    window.location.href = 'tel:+995551305305';
 }
 
 // Analytics tracking (placeholder)
@@ -313,40 +313,50 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // SEND LOCATION VIA WHATSAPP
-function sendLocationViaWhatsApp() {
+// Note: In HTML, make sure to call it like this: onclick="sendLocationViaWhatsApp(event)"
+function sendLocationViaWhatsApp(event) {
     if (navigator.geolocation) {
-        // Show loading state
+        // ღილაკის ვიზუალის შეცვლა
         const btn = event.target.closest('button');
         const originalText = btn.innerHTML;
-        btn.innerHTML = '<span style="color: white;">⏳</span> Getting location...';
+        btn.innerHTML = '<span style="color: white;">⏳</span> ლოკაცია იძებნება...';
         btn.disabled = true;
         
         navigator.geolocation.getCurrentPosition(
             function(position) {
                 const lat = position.coords.latitude;
                 const lng = position.coords.longitude;
-                const googleMapsLink = `http://googleusercontent.com/maps.google.com/?q=${lat},${lng}`;
                 
-                // Create message with location
-                const message = `I need emergency towing service! My location: ${googleMapsLink}`;
+                // ✅ შესწორებულია: Google Maps-ის სტანდარტული ლინკი
+                const googleMapsLink = `https://www.google.com/maps?q=${lat},${lng}`;
+                
+                // მესიჯის ფორმირება
+                const message = `გამარჯობა, მჭირდება ევაკუატორი! ჩემი ლოკაციაა: ${googleMapsLink}`;
                 const phoneNumber = '+995551305305';
                 const encodedMessage = encodeURIComponent(message);
                 
-                // Open WhatsApp with message
+                // WhatsApp-ის გახსნა
                 window.open(`https://wa.me/${phoneNumber.replace(/\D/g, '')}?text=${encodedMessage}`, '_blank');
                 
-                // Reset button
+                // ღილაკის დაბრუნება საწყის მდგომარეობაში
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             },
             function(error) {
-                alert('Could not access your location. Please enable location services and try again.');
-                // Reset button
+                // შეცდომის დამუშავება
+                console.error("Geolocation error:", error); // კარგია კონსოლშიც ჩანდეს
+                alert('ვერ ხერხდება ლოკაციის გაგება. დარწმუნდით, რომ GPS ჩართულია და ბრაუზერს აქვს უფლება.');
+                
                 btn.innerHTML = originalText;
                 btn.disabled = false;
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
             }
         );
     } else {
-        alert('Your browser does not support location services.');
+        alert('თქვენს ბრაუზერს არ აქვს გეოლოკაციის მხარდაჭერა.');
     }
 }
