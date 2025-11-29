@@ -285,7 +285,7 @@ function submitLocation() {
     }
     
     // Create message with location
-    const message = `EMERGENCY: My location is: ${location}`;
+    const message = `ჩემი ლოკაცია: ${location}`;
     
     // Call directly with message
     const phoneNumber = '+995551305305';
