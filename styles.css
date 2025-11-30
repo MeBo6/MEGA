@@ -551,7 +551,7 @@ body {
     min-height: 600px;
     overflow: hidden;
     background-color: #333;
-    background-image: url('./Photos/hero-bg.jpg');
+    background-image: url('./Photos/hero-bg.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -646,7 +646,7 @@ body {
 /* Responsive hero background for smaller devices */
 @media (max-width: 1000px) {
     .hero {
-        background-image: url('./Photos/hero-bg.jpg');
+        background-image: url('./Photos/hero-bg.webp');
         background-size: cover;
         background-attachment: scroll;
         background-position: center;
@@ -1139,7 +1139,7 @@ body {
     }
 
     .hero {
-        background-image: url('./Photos/hero-bg.jpg');
+        background-image: url('./Photos/hero-bg.webp');
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
@@ -1425,7 +1425,7 @@ body {
 
     .hero {
         min-height: 400px;
-        background-image: url('./Photos/hero-bg.jpg');
+        background-image: url('./Photos/hero-bg.webp');
         background-size: cover;
         background-position: center;
         background-attachment: scroll;
