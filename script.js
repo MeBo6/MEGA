@@ -358,41 +358,46 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// EMAILJS CONTACT FORM HANDLER
+// EmailJS ინიციალიზაცია (აქ ჩასვით თქვენი PUBLIC KEY)
+emailjs.init("s6A_JqGCPv51hEZMh"); 
+
 document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('contact-form'); // გავასწორეთ ID
+
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
             
-            const submitBtn = document.getElementById('submitBtn');
-            const originalText = submitBtn.textContent;
+            // ღილაკის პოვნა (ID-ის გარეშე, ტიპით ვპოულობთ)
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerText;
+            
+            // ღილაკის გათიშვა და ტექსტის შეცვლა
             submitBtn.disabled = true;
-            submitBtn.textContent = 'იგზავნება...';
-            
-            // Prepare template parameters
+            submitBtn.innerText = 'იგზავნება...';
+
+            // მონაცემების მომზადება (სახელები გასწორებულია შაბლონის მიხედვით)
             const templateParams = {
-                to_email: 'megaplusrustavi@gmail.com',
-                from_name: document.getElementById('name').value,
-                from_email: document.getElementById('email').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
-                service: document.getElementById('service').value || 'მოუხსენებელი',
+                service: document.getElementById('service').value,
                 message: document.getElementById('message').value
             };
-            
-            // Send email via EmailJS
+
+            // გაგზავნა (თქვენი ID-ებით)
             emailjs.send('service_89e1the', 'template_bdqh1dg', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     alert('წერილი წარმატებით გაიგზავნა! ჩვენ მალე გიპასუხებთ.');
-                    contactForm.reset();
+                    contactForm.reset(); // ფორმის გასუფთავება
                     submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
+                    submitBtn.innerText = originalText;
                 }, function(error) {
                     console.log('FAILED...', error);
-                    alert('სამწუხაროდ, ხარვეზი წარმოიშვა. გთხოვთ ცადეთ მეორე ჯერ ან დაგვირეკეთ.');
+                    alert('სამწუხაროდ, ხარვეზი წარმოიშვა. გთხოვთ მოგვწეროთ WhatsApp-ში.');
                     submitBtn.disabled = false;
-                    submitBtn.textContent = originalText;
+                    submitBtn.innerText = originalText;
                 });
         });
     }
