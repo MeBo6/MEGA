@@ -1246,7 +1246,7 @@ body {
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 0.4rem 2%;
+        padding: 0.4rem 0.5%;
         gap: 0.25rem;
         min-height: 55px;
         width: 100%;
@@ -1348,7 +1348,7 @@ body {
 /* Ultra-small devices under 370px - improved layout */
 @media (max-width: 370px) {
     .navbar {
-        padding: 0.4rem 1%;
+        padding: 0.4rem 0.3%;
         gap: 0.25rem;
         min-height: 55px;
         align-items: center;
