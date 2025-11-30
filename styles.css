@@ -1244,6 +1244,13 @@ body {
     }
 }
 
+/* Ultra tiny devices under 285px - hide phone number */
+@media (max-width: 284px) {
+    .header-contact {
+        display: none !important;
+    }
+}
+
 /* Progressive margin system: minimal at under 371px, increases with viewport width */
 @media (max-width: 370px) {
     .navbar {
