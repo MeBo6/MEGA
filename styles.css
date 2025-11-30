@@ -1246,7 +1246,7 @@ body {
 
 /* Ultra tiny devices under 285px - hide phone number */
 @media (max-width: 284px) {
-    .header-contact {
+    .navbar .header-contact {
         display: none !important;
     }
 }
