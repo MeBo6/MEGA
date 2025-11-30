@@ -21,10 +21,8 @@
     <title>Contact MEGA+ Towing - 24/7 Emergency Help | Get Help Fast</title>
     <link rel="icon" type="image/png" href="Photos/Logo.png">
     <!-- Critical CSS inline for faster FCP -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;700&display=swap');
       body { margin: 0; font-family: 'Noto Sans Georgian', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
       .header, .hero { background: #1a1a1a; color: white; }
       .navbar { display: flex; align-items: center; padding: 1rem 2rem; }
@@ -49,6 +47,11 @@
     <script src="script.js" defer></script>
     <!-- EmailJS -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("s6A_JqGCPv51hEZMh");
+        })();
+    </script>
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0RS4B947Q"></script>
     <script>
