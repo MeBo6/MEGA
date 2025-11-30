@@ -119,7 +119,6 @@ body {
     padding: 0;
     flex: 1 1 auto;
     gap: 0.5rem;
-    min-width: 400px;
 }
 
 .nav-links li {
@@ -1196,16 +1195,23 @@ body {
     }
 }
 
-/* Tablet sizes - show phone link and compress nav more */
-@media (max-width: 1024px) {
-    .header-contact {
-        display: flex;
-        margin-left: 0.75rem;
-        margin-right: 0.75rem;
+/* Tablet sizes - improved responsiveness for 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .navbar {
+        padding: 0.5rem 1.5%;
+        gap: 0.4rem;
     }
 
-    .phone-link {
-        font-size: 0.85rem;
+    .logo {
+        margin-right: 0.5rem;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+    .nav-links {
+        gap: 0.25rem;
     }
 
     .nav-links li {
@@ -1213,7 +1219,28 @@ body {
     }
 
     .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .header-contact {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        order: 15;
+    }
+
+    .phone-link {
         font-size: 0.85rem;
+    }
+
+    .language-switcher {
+        gap: 0.2rem;
+        margin-right: 0.5rem;
+        order: 20;
+    }
+
+    .lang-btn {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.75rem;
     }
 }
 
@@ -1222,10 +1249,15 @@ body {
         padding: 0.4rem 2%;
         gap: 0.25rem;
         min-height: 55px;
+        width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap;
     }
 
     .logo {
         margin-right: 0;
+        flex-shrink: 0;
+        order: 1;
     }
 
     .logo img {
@@ -1236,29 +1268,42 @@ body {
         display: none;
     }
 
+    .header-contact {
+        display: flex !important;
+        margin-left: auto;
+        margin-right: auto;
+        order: 2;
+        flex-shrink: 0;
+    }
+
+    .phone-link {
+        font-size: 0.75rem;
+    }
+
+    .mobile-menu-toggle {
+        font-size: 1.3rem;
+        margin-left: auto;
+        margin-right: 0;
+        order: 3;
+        flex-shrink: 0;
+    }
+
     .language-switcher {
         display: flex !important;
         gap: 0.2rem;
+        margin-left: 0;
+        margin-right: 0;
+        flex-shrink: 0;
+        flex-basis: 100%;
+        order: 4;
+        justify-content: flex-start;
+        margin-top: 0.3rem;
     }
 
     .lang-btn {
         padding: 0.3rem 0.4rem;
         font-size: 0.7rem;
         min-width: 28px;
-    }
-
-    .header-contact {
-        display: flex !important;
-        margin-left: 0.25rem;
-        margin-right: 0.25rem;
-    }
-
-    .phone-link {
-        font-size: 0.7rem;
-    }
-
-    .mobile-menu-toggle {
-        font-size: 1.3rem;
     }
 
     .hero {
@@ -1300,28 +1345,32 @@ body {
     }
 }
 
-/* Extra small devices under 371px - reorganize header layout */
+/* Ultra-small devices under 370px - improved layout */
 @media (max-width: 370px) {
     .navbar {
+        padding: 0.4rem 1%;
+        gap: 0.25rem;
+        min-height: 55px;
+        align-items: center;
         flex-wrap: wrap;
-        padding: 0.3rem 2%;
-        gap: 0.2rem;
-        min-height: auto;
     }
 
     .logo {
-        order: 1;
+        flex-shrink: 0;
         margin-right: 0;
-        margin-left: 0;
-        flex-basis: auto;
+        order: 1;
+    }
+
+    .logo img {
+        height: 42px;
     }
 
     .header-contact {
-        order: 2;
         display: flex !important;
         margin-left: auto;
-        margin-right: 0;
-        flex-basis: auto;
+        margin-right: auto;
+        order: 2;
+        flex-shrink: 0;
     }
 
     .phone-link {
@@ -1329,24 +1378,29 @@ body {
     }
 
     .mobile-menu-toggle {
-        order: 3;
-        margin-left: 0.3rem;
         font-size: 1.2rem;
+        margin-left: auto;
+        margin-right: 0;
+        flex-shrink: 0;
+        order: 3;
     }
 
     .language-switcher {
-        order: 4;
-        flex-basis: 100%;
-        margin-top: 0.3rem;
-        margin-bottom: 0;
-        justify-content: flex-start !important;
+        display: flex !important;
         gap: 0.15rem;
+        margin-left: 0;
+        margin-right: 0;
+        flex-shrink: 0;
+        flex-basis: 100%;
+        order: 4;
+        justify-content: flex-start;
+        margin-top: 0.3rem;
     }
 
     .lang-btn {
-        padding: 0.25rem 0.35rem;
+        padding: 0.3rem 0.4rem;
         font-size: 0.65rem;
-        min-width: 24px;
+        min-width: 26px;
     }
 
     .nav-links {
@@ -1354,7 +1408,7 @@ body {
     }
 }
 
-/* ABOUT PAGE STYLES */
+
 .our-story {
     padding: 5rem 4%;
     background-color: white;
