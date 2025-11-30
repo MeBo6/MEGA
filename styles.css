@@ -548,7 +548,7 @@ body {
 .hero {
     display: flex;
     position: relative;
-    min-height: 600px;
+    min-height: 450px;
     overflow: hidden;
     background-color: #333;
     background-image: url('./Photos/hero-bg.webp');
