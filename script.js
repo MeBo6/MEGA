@@ -86,6 +86,11 @@ const LanguageManager = (() => {
                 const key = element.getAttribute('data-i18n-placeholder');
                 element.placeholder = t(key);
             });
+            // Update meta description based on language
+            const metaDescription = document.getElementById('meta-description');
+            if (metaDescription) {
+                metaDescription.setAttribute('content', t('meta_description'));
+            }
         });
     };
 
