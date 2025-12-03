@@ -1078,6 +1078,29 @@ body {
     }
 }
 
+/* Mobile Menu Animation */
+@keyframes slideDownMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpMenu {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
@@ -1117,6 +1140,7 @@ body {
 
     .nav-links.active {
         display: flex;
+        animation: slideDownMenu 0.35s ease-out;
     }
 
     .nav-links li {
